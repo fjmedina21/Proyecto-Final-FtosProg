@@ -70,7 +70,7 @@ def validarFechaNacimiento(entrada):#Validación para la fecha de nacimiento
         mes = (x[1])
         dia = (x[2])
         
-        if (anio.isdigit()) and ((int(anio) in range(1900,hoy.year))):
+        if (anio.isdigit()) and ((int(anio) in range(1910,hoy.year))):
             if (mes.isdigit()) and ((int(mes) in range(1,13))):
                 if (dia.isdigit()) and (int(dia) in range(1,32)):
                     edad = hoy.year - int(anio)
@@ -78,7 +78,7 @@ def validarFechaNacimiento(entrada):#Validación para la fecha de nacimiento
                     if edad in range(15,81):
                         return True
                     else:
-                        print(f"\n--Debes tener entre 16 y 80 años para poder registrarse--")
+                        print(f"\n--Debes tener entre 15 y 80 años para poder registrarse--")
                 else:
                     if (dia.isalpha()):
                         print("\n--El Día no puede ser una letra--")
@@ -97,7 +97,7 @@ def validarFechaNacimiento(entrada):#Validación para la fecha de nacimiento
                 elif (anio.isdigit()):
                     if int(anio) >= hoy.year:
                         print(f"\n--Estas seguro que naciste en el año {anio}, intenta otra vez--")
-                    elif int(anio) < 1900:
+                    elif int(anio) < 1910:
                         print("\n--No es posible registrarse--")
                 else:
                     print("\n--El Año no puede ser Alfanumerico--")
