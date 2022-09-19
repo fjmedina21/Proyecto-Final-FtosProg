@@ -69,7 +69,7 @@ def validarFechaNacimiento(entrada):#Validación para la fecha de nacimiento
         anio = (x[0])
         mes = (x[1])
         dia = (x[2])
-        
+
         if (anio.isdigit()) and ((int(anio) in range(1910,hoy.year))):
             if (mes.isdigit()) and ((int(mes) in range(1,13))):
                 if (dia.isdigit()) and (int(dia) in range(1,32)):
@@ -84,10 +84,10 @@ def validarFechaNacimiento(entrada):#Validación para la fecha de nacimiento
                         print("\n--El Día no puede ser una letra--")
                     else:
                         print("\n--Ingrese un día válido--")
-            else:  
+            else:
                 if (mes.isalpha()):
-                    print("""\n--Aunque el mes puede ser ingresado en forma de texto, 
-                    aqui debe ser de forma numerica desde el 1 hasta el 12, intente otra vez--""")  
+                    print("""\n--Aunque el mes puede ser ingresado en forma de texto,
+                    aqui debe ser de forma numerica desde el 1 hasta el 12, intente otra vez--""")
                 else:
                     print("\n--Ingrese un mes válido--")
         else:
@@ -115,7 +115,7 @@ def validarFecha(entrada):#Validación para la fecha
         anio = (x[0])
         mes = (x[1])
         dia = (x[2])
-        
+
         if (anio.isdigit()) and ((int(anio) in range((hoy.year),2100))):
             if (mes.isdigit()) and ((int(mes) in range(1,13))):
                 if (dia.isdigit()) and (int(dia) in range(1,32)):
@@ -125,10 +125,10 @@ def validarFecha(entrada):#Validación para la fecha
                         print("\n--El Día no puede ser una letra--")
                     else:
                         print("\n--Ingrese un día válido--")
-            else:  
+            else:
                 if (mes.isalpha()):
                     print("""\n--Aunque el mes puede ser ingresado en forma de texto, a
-                    qui debe ser de forma numerica desde el 1 hasta el 12, intente otra vez--""")  
+                    qui debe ser de forma numerica desde el 1 hasta el 12, intente otra vez--""")
                 else:
                     print("\n--Ingrese un mes válido--")
         else:
@@ -150,13 +150,13 @@ def validarCedula(entrada):#Validación de cédula
         if datos["ok"]:
             return True
         else:
-            print("\nCédula not found on the API")   
+            print("\nCédula not found on the API")
     elif (entrada.isalnum()) and (len(entrada) == 11):
         print("\nCédula can't be alphanumeric")
     elif (len(entrada) != 11):
         if len(entrada) == 0:
             print("\nCédula required")
-        elif (entrada.isdigit()):    
+        elif (entrada.isdigit()):
             print("\nCédula must have eleven digits")
         else:
             print("\nInvalid value")
@@ -166,7 +166,7 @@ def validarTelCel(entrada):#Validación de Tel/Cel
     for guion in entrada:
         if (guion == "-"):
             cont += 1
-    
+
     if cont == 0:
         if (entrada.isdigit()) and len(entrada) == 10:
             return True
@@ -175,7 +175,7 @@ def validarTelCel(entrada):#Validación de Tel/Cel
         elif (len(entrada) != 10):
             if len(entrada) == 0:
                 print("\nValue required")
-            elif (entrada.isdigit()):    
+            elif (entrada.isdigit()):
                 print("Tel/Cel must have ten digits")
             else:
                 print("\nIvalid value")
@@ -202,7 +202,7 @@ def idCiclistaDisp(entrada):#Validación para los id de ciclista exitentes
         count = 0
         for i in listaIdC:
             if entrada == i:
-                count += 1    
+                count += 1
         if count == 0:
             return True
         else:
@@ -224,7 +224,7 @@ def cedExist(entrada):#Validación para las cédulas existentes
 def emailExist(entrada):#Validación paro los email existentes
     listaemail = []
     for x in Ciclista:#Arreglo para validar si la cedula ya esta registrada
-        listaemail.append(x.email) 
+        listaemail.append(x.email)
     count = 0
     for email in listaemail:
         if entrada == email:

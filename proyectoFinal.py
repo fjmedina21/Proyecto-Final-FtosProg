@@ -24,7 +24,7 @@ def gestionarCiclistas():#Sección A
 
         cedula = myInput("Ingrese la Cédula / 'X' para regresar: ")
         if cedula.lower() == "x":
-            gestionarCiclistas()  
+            gestionarCiclistas()
 
         if validarCedula(cedula):
             if cedExist(cedula):
@@ -48,27 +48,27 @@ def gestionarCiclistas():#Sección A
                                 break
                             else:
                                 msj("")
-                                tel = myInput("Número de Teléfono (sin guiones): ")                 
+                                tel = myInput("Número de Teléfono (sin guiones): ")
                         cel = myInput("Número de Celular (sin guiones): ")
-                        while True:  
+                        while True:
                             if validarTelCel(cel):
                                 c.cel = cel
                                 break
                             else:
                                 msj("")
-                                cel = myInput("Número de Celular (sin guiones): ")                 
+                                cel = myInput("Número de Celular (sin guiones): ")
                         email = myInput("E-mail: ")
-                        while True: 
+                        while True:
                             if emailExist(email):
                                 msj("Este email ya esta registrado")
                                 email = myInput("E-mail: ")
                             else:
                                 c.email = email
-                                break                     
+                                break
                         c.direccion = myInput("Dirección: ")
                         c.persContacto = myInput("Persona de Contacto: ").title()
                         telContacto = myInput("Teléfono de Contacto (sin guiones): ")
-                        while True:  
+                        while True:
                             if validarTelCel(telContacto):
                                 c.telContacto = telContacto
                                 break
@@ -126,12 +126,12 @@ def gestionarCiclistas():#Sección A
                                 msj("")
                                 cel = myInput(c.cel+", Editar Celular (sin guiones): ",c.cel)
                     email = myInput(c.email+", Editar E-mail: ",c.email)
-                    while True: 
+                    while True:
                         if emailExist(email):
                             if email == c.email:
                                 c.email = email
                                 break
-                            else: 
+                            else:
                                 msj("Este email ya esta registrado")
                                 email = myInput(c.email+", Editar E-mail: ",c.email)
                         else:
@@ -199,7 +199,7 @@ def gestionarActividades():#Sección B
 
     def registrarActividad():#Sección B.1
         clean()
-        listadoCiclista() 
+        listadoCiclista()
 
         opt = myInput("Seleccione el Id del ciclista para agregar una actividad - 'X' para regresar: ")
         if opt.lower() == "x":
@@ -213,8 +213,8 @@ def gestionarActividades():#Sección B
             c = Ciclista.get_by_id(opt)
             clean()
             a = Actividades()
-            a.nomCiclista = c.nombre  
-            a.apellCiclista = c.apellido  
+            a.nomCiclista = c.nombre
+            a.apellCiclista = c.apellido
             print(f"Ciclista: {a.nomCiclista} {a.apellCiclista}")
             a.fecha = date.today()
             print(f"Fecha de la actividad: {a.fecha}")
@@ -271,7 +271,7 @@ def gestionarActividades():#Sección B
             eliminarActividad()
         else:
             a = Actividades.get_by_id(opt)
-            a.delete_instance() 
+            a.delete_instance()
             msj("Actividad Eliminada")
 
     while True:
@@ -299,11 +299,11 @@ def gestionarActividades():#Sección B
             msj("Debes de elegir una opción valida")
 
 def reportes():#Sección C
-    
+
     def mostrarCiclistas():#Sección C.1
         listadoCiclista()
         msj("Listado de Ciclistas")
-    
+
     def mostrarActividades():#Sección C.2
         listadoActividades()
         msj("Listado de Actividades")
@@ -316,33 +316,33 @@ def reportes():#Sección C
             mes = int(x[1])
             dia = int(x[2])
 
-            if mes == 1: 
-                sz = 'Capricornio' if (dia <= 20) else 'Acuario'  
-            elif mes == 2: 
-                sz = 'Acuario' if (dia <= 19) else 'Piscis'  
-            elif mes == 3: 
-                sz = 'Piscis' if (dia <= 20) else 'Aries'   
-            elif mes == 4: 
-                sz = 'Aries' if (dia <= 20) else 'Tauro'   
-            elif mes == 5: 
-                sz = 'Tauro' if (dia <= 20) else 'Géminis'  
-            elif mes == 6: 
-                sz = 'Géminis' if (dia <= 21) else 'Cáncer'  
-            elif mes == 7: 
-                sz = 'Cáncer' if (dia <= 22) else 'Leo'  
-            elif mes == 8: 
-                sz = 'Leo' if (dia <= 22) else 'Virgo'  
-            elif mes == 9: 
-                sz = 'Virgo' if (dia <= 22) else 'Libra'   
-            elif mes == 10: 
-                sz = 'Libra' if (dia <= 22) else 'Escorpión'   
-            elif mes == 11: 
+            if mes == 1:
+                sz = 'Capricornio' if (dia <= 20) else 'Acuario'
+            elif mes == 2:
+                sz = 'Acuario' if (dia <= 19) else 'Piscis'
+            elif mes == 3:
+                sz = 'Piscis' if (dia <= 20) else 'Aries'
+            elif mes == 4:
+                sz = 'Aries' if (dia <= 20) else 'Tauro'
+            elif mes == 5:
+                sz = 'Tauro' if (dia <= 20) else 'Géminis'
+            elif mes == 6:
+                sz = 'Géminis' if (dia <= 21) else 'Cáncer'
+            elif mes == 7:
+                sz = 'Cáncer' if (dia <= 22) else 'Leo'
+            elif mes == 8:
+                sz = 'Leo' if (dia <= 22) else 'Virgo'
+            elif mes == 9:
+                sz = 'Virgo' if (dia <= 22) else 'Libra'
+            elif mes == 10:
+                sz = 'Libra' if (dia <= 22) else 'Escorpión'
+            elif mes == 11:
                 sz = 'Escorpión' if (dia <= 22) else 'Sagitario'
-            elif mes == 12: 
-                sz = 'Sagitario' if (dia <= 20) else 'Capricornio' 
-            
+            elif mes == 12:
+                sz = 'Sagitario' if (dia <= 20) else 'Capricornio'
+
             tmp.add_row([c.idCiclista,f"{c.nombre} {c.apellido}",sz])
-        print(tmp)  
+        print(tmp)
         msj("Listado de Ciclista con Signo Zodiacal")
 
     def exportarHTML():#Sección C.4
@@ -352,9 +352,9 @@ def reportes():#Sección C
         mapa = folium.Map(location=[18.735693, -70.162651], zoom_start=6, titles="Mapa de Actividades")
 
         for a in Actividades.select():
-            folium.Marker(location=[a.lat, a.lng], tooltip="Click para ver más información", 
+            folium.Marker(location=[a.lat, a.lng], tooltip="Click para ver más información",
             popup=(f"{a.nomCiclista} {a.apellCiclista}")).add_to(mapa)
-    
+
         mapa.save("MapaActividadesCiclista.html")
         webbrowser.open("MapaActividadesCiclista.html")
 
@@ -396,7 +396,6 @@ def acercaDe():#Sección D
     tmp.add_column(column_names[1], ["Fundamentos de Programación","Francisco Javier Medina Matos","2020-9273","https://www.youtube.com/watch?v=bDyisqgIFG0"])
     print(tmp)
     webbrowser.open("https://www.youtube.com/watch?v=bDyisqgIFG0")
-    msj("El video se ha abrió es su navegador")
 
 def menu():#Menu Principal
     while True:
